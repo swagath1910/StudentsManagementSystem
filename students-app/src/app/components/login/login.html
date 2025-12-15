@@ -1,0 +1,22 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2>Login</h2>
+
+    <p class="error-msg" *ngIf="error()">{{ error() }}</p>
+
+    <input
+      placeholder="Email"
+      [ngModel]="email()"
+      (ngModelChange)="email.set($event)"
+    />
+
+    <input
+      placeholder="Password"
+      type="password"
+      [ngModel]="password()"
+      (ngModelChange)="password.set($event)"
+    />
+
+    <button (click)="login()">Login</button>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+<div class="students-card">
+  <h2>Students</h2>
+
+  <form class="student-form" (ngSubmit)="saveStudent()">
+    <div class="field">
+      <label>Name</label>
+      <input
+        type="text"
+        [(ngModel)]="selectedStudent().name" 
+        name="name" 
+        required
+        placeholder="Enter student name"
+      />
+    </div>
+
+    <div class="field">
+      <label>Class</label>
+      <input
+        type="number"
+        [(ngModel)]="selectedStudent().class" 
+        name="class" 
+        required
+      />
+    </div>
+
+    <div class="field">
+      <label>Section</label>
+      <input
+        type="text"
+        [(ngModel)]="selectedStudent().section" 
+        name="section" 
+        required
+        placeholder="Enter section"
+      />
+    </div>
+
+    <div class="form-actions">
+      <button type="submit">
+        {{ selectedStudent().id === 0 ? 'Add' : 'Update' }}
+      </button>
+      <button type="button" (click)="resetForm()">Cancel</button>
+    </div>
+  </form>
+
+  <div class="table-wrapper">
+    <table class="students-table bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Class</th>
+          <th>Section</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let s of students()">
+          <td>{{ s.id }}</td>
+          <td>{{ s.name }}</td>      
+          <td>{{ s.class }}</td>     
+          <td>{{ s.section }}</td>   
+          <td>
+            <button class="action-btn edit" (click)="editStudent(s)">
+              Edit
+            </button>
+            <button class="action-btn delete" (click)="deleteStudent(s.id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

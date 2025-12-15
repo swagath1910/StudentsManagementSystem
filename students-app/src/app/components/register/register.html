@@ -1,0 +1,33 @@
+<div class="register-container">
+  <div class="register-card">
+    <h2>Create Account</h2>
+    
+    <input
+      type="text"
+      placeholder="Username"
+      [ngModel]="username()"
+      (ngModelChange)="username.set($event)"
+    />
+
+    <input
+      type="email"
+      placeholder="Email"
+      [ngModel]="email()"
+      (ngModelChange)="email.set($event)"
+    />
+
+    <input
+      type="password"
+      placeholder="Password"
+      [ngModel]="password()"
+      (ngModelChange)="password.set($event)"
+    />
+
+    <button (click)="register()">Register</button>
+
+    <p class="login-link">
+      Already have an account?
+      <a routerLink="/login">Login</a>
+    </p>
+  </div>
+</div>
